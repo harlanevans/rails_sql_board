@@ -1,0 +1,12 @@
+<%= link_to "Back to All Boards", boards_path, class: "ui basic button" %>
+<br />
+<br />
+<div class="center_content">
+<h2><i>Board: <%= @board.name %></i></h2>
+<button class= "ui small basic button red">
+<i class="ban icon"></i>
+  <%= link_to "Delete Board", @board, method: :delete  %>
+</button>
+</div>
+<hr />
+

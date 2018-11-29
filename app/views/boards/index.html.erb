@@ -1,0 +1,38 @@
+<br />
+<div class="center_content">
+<h1><i class="user icon"></i><i><b>Your Boards</b></i></h1>
+<br />
+<%= link_to "Add a New Board", new_board_path, class: "ui small basic button grey" %>
+</div>
+<hr />
+<br />
+<br />
+<h2><%= @boards.length <= 0 ? "No Boards" : "" %></h2>
+<% @boards.each do |board| %>
+  <br />
+      <ul>
+        <ol>
+          <div class="board_show">
+        
+          <button class="ui small basic button grey">
+            <i class="book icon"></i>
+              <%= link_to board.name, board_path(board) %>
+            </button>
+        
+            <button class="ui small basic button teal">      
+              <i class="edit icon"></i>
+                <%= link_to "Edit this Board", edit_board_path(board)%>
+            </button>
+            
+            <button class= "ui small basic button red">
+              <i class="ban icon"></i>
+            <%= link_to "Delete Board", board_path(board), method: :delete  %>
+            </button>
+      </div>
+      <hr />
+      </ol>
+      </ul>
+  <% end %>
+
+  
+
