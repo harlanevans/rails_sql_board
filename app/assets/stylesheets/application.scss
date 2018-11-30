@@ -1,5 +1,11 @@
 @import "semantic-ui";
 
+
+
+body {
+  background-image: url("https://opticalcortex.com/app/uploads/2014/08/grad.jpg");
+}
+
 .board_show {
   display: flex;
   justify-content: space-between;
@@ -9,4 +15,11 @@
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
 }

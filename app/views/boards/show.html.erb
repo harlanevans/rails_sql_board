@@ -1,12 +1,33 @@
-<%= link_to "Back to All Boards", boards_path, class: "ui basic button" %>
 <br />
 <br />
 <div class="center_content">
-<h2><i>Board: <%= @board.name %></i></h2>
-<button class= "ui small basic button red">
+<h2><i>Board:  <%= @board.name %></i></h2>
+<button class= "ui small button red">
 <i class="ban icon"></i>
-  <%= link_to "Delete Board", @board, method: :delete  %>
+<%= link_to "Delete Board", @board, method: :delete  %>
 </button>
 </div>
 <hr />
+
+<div class='board_show'>
+<h3><i>Your Lists: </i></h3>
+<%= link_to "Create a New List", new_board_list_path(@board), class: "ui small button" %>
+</div>
+<br />
+<br />
+<% @board.lists.each do |list| %>
+  <div class="cards">
+    <div class="ui cards">
+      <div class="card">
+      <div class="content">
+      <div class="header">
+        <p>List Name: <%= list.name %></p>
+        <p>Date Created: <%= list.date_created %></p>
+        <%= link_to "Delete List", board_list_path(@board, list), method: :delete,
+         class: "ui small inverted red button" %>
+      </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
 
