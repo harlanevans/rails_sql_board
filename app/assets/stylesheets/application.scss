@@ -3,7 +3,9 @@
 
 
 body {
-  background-image: url("https://opticalcortex.com/app/uploads/2014/08/grad.jpg");
+  background-image: url("https://s.tmimgcdn.com/blog/wp-content/uploads/2017/05/gradient.jpg?x54449");
+  background-size: 100%;
+  
 }
 
 .board_show {
@@ -17,9 +19,10 @@ body {
   align-items: baseline;
 }
 
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
+.card_flex {
+  flex-direction: row;
+}
+
+.ui.menu {
+  background-color: rgba(10, 10, 10, 0.3);
 }

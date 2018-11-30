@@ -35,7 +35,7 @@ class ListsController < ApplicationController
 
   def destroy
     @list = List.find(params[:id]).destroy
-    redirect_to board_path
+    redirect_to @board
   end
 
       private

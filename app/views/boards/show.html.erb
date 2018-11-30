@@ -1,33 +1,45 @@
 <br />
 <br />
 <div class="center_content">
-<h2><i>Board:  <%= @board.name %></i></h2>
-<button class= "ui small button red">
+<h1><i>Board:  <%= @board.name %></i></h1>
+<button class= "ui small basic inverted red button">
 <i class="ban icon"></i>
 <%= link_to "Delete Board", @board, method: :delete  %>
 </button>
 </div>
 <hr />
+<br />
 
 <div class='board_show'>
-<h3><i>Your Lists: </i></h3>
-<%= link_to "Create a New List", new_board_list_path(@board), class: "ui small button" %>
+<h2><i>Your Lists: </i></h2>
+<%= link_to "Create a New List", new_board_list_path(@board), class: "ui small basic inverted teal button" %>
 </div>
 <br />
-<br />
-<% @board.lists.each do |list| %>
-  <div class="cards">
-    <div class="ui cards">
-      <div class="card">
-      <div class="content">
-      <div class="header">
-        <p>List Name: <%= list.name %></p>
-        <p>Date Created: <%= list.date_created %></p>
-        <%= link_to "Delete List", board_list_path(@board, list), method: :delete,
-         class: "ui small inverted red button" %>
-      </div>
-      </div>
-    </div>
+
+
+<div class="ui three column grid">
+<% @board.lists.each do |list| %> 
+<div class="column">
+<div class="ui teal fluid link card">
+    <div class="image" href='#'>
+    <img src='https://css-tricks.com/wp-content/uploads/2017/09/radial-gradient.png'></div>
+  <div class="center aligned header"><h3><i>List Name: </i></h3><%= list.name %>
+  </div>
+  <br />
+  <span class="center aligned date">
+  <h5><i>Date Created: </i></h5><%= list.date_created %>
+  </span>
+  
+  <div class="extra content">
+  <div class="ui two buttons">
+  <div class='ui small basic green button'><%= link_to "Edit this List", edit_board_list_path(@board, list) %></div>
+  <div class= "ui small basic red button"><%= link_to "Delete List", board_list_path(@board, list), method: :delete %></div>
+  </div>
+  </div>
+  
+  </div>
   </div>
   <% end %>
-
+  </div>
+  </div>
+  
