@@ -18,28 +18,47 @@
 
 
 <div class="ui three column grid">
-<% @board.lists.each do |list| %> 
-<div class="column">
-<div class="ui teal fluid link card">
-    <div class="image" href='#'>
-    <img src='https://css-tricks.com/wp-content/uploads/2017/09/radial-gradient.png'></div>
-  <div class="center aligned header"><h3><i>List Name: </i></h3><%= list.name %>
-  </div>
-  <br />
-  <span class="center aligned date">
-  <h5><i>Date Created: </i></h5><%= list.date_created %>
-  </span>
-  
-  <div class="extra content">
-  <div class="ui two buttons">
-  <div class='ui small basic green button'><%= link_to "Edit this List", edit_board_list_path(@board, list) %></div>
-  <div class= "ui small basic red button"><%= link_to "Delete List", board_list_path(@board, list), method: :delete %></div>
-  </div>
-  </div>
-  
-  </div>
-  </div>
+  <% @board.lists.each do |list| %> 
+    <div class="column">
+      <div class="ui teal fluid link card">
+        
+      <%= link_to board_list_path(@board, list), class: "image" do %>
+        <img src='https://css-tricks.com/wp-content/uploads/2017/09/radial-gradient.png'>
+      <% end %>
+          
+      <div class="content">
+        <div class="left floated">
+          <b><i>List Name: </i></b>
+        </div>
+          <span class="right floated">
+            <i><%= list.name %></i>
+          </span>
+      </div>
+
+        <div class="content">
+          <div class="left floated">
+            <b><i>Date Created: </i></b>
+          </div>
+            <div class="right floated meta">
+              <span class="date">
+                <%= list.date_created %>
+              </span>
+            </div>
+        </div>
+        
+        <div class="extra content">
+          <div class="ui two small buttons">
+            <div class='ui small basic inverted green button'>
+              <%= link_to "Edit this List", edit_board_list_path(@board, list) %>
+            </div>
+            <div class= "ui small basic inverted red button">
+              <%= link_to "Delete List", board_list_path(@board, list), method: :delete %>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
   <% end %>
-  </div>
-  </div>
+</div>
   

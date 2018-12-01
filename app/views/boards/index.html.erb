@@ -13,23 +13,19 @@
       <ul>
         <ol>
           <div class="board_show">
+          <%= link_to board_path(board), class: "ui small basic inverted button blue" do %>
+            <i class="book icon"> </i><%= board.name %>
+            <% end %>
         
-          <button class="ui small button black">
-            <i class="book icon"></i>
-              <%= link_to board.name, board_path(board) %>
-            </button>
-        
-            <button class="ui small button teal">      
-              <i class="edit icon"></i>
-                <%= link_to "Edit this Board", edit_board_path(board)%>
-            </button>
+            <%= link_to edit_board_path(board), class: "ui small basic inverted button teal" do %>
+            <i class="edit icon"></i>Edit this Board
+            <% end %>
             
-            <button class= "ui small button red">
-              <i class="ban icon"></i>
-            <%= link_to "Delete Board", board_path(board), method: :delete  %>
-            </button>
+            <%= link_to board_path(board), method: :delete, class: "ui small basic inverted red button" do  %>
+            <i class="ban icon"></i>Delete Board
+              <% end %>
       </div>
-      <hr />
+      <br />
       </ol>
       </ul>
   <% end %>
